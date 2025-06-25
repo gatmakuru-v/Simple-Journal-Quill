@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Global Reset & Base Styles */
+*, *::before, *::after {
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* More dynamic, slightly richer gradient for background */
+    background: linear-gradient(135deg, #7452d7 0%, #b27bfb 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top (changed from center to start) */
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px; /* Increased padding around the content */
+    color: #333;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Page Header */
+h1 {
+    color: #fff;
+    font-size: 3em; /* Slightly larger heading */
+    font-weight: 700;
+    margin-bottom: 40px; /* More space below heading */
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Deeper shadow for "pop" */
+    letter-spacing: 0.02em; /* Subtle letter spacing */
+    animation: fadeInDown 0.8s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Container */
+form {
+    background-color: rgba(255, 255, 255, 0.98); /* Less transparent for a more solid feel */
+    padding: 40px; /* Increased internal spacing */
+    border-radius: 20px; /* More rounded corners */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Stronger, more diffused shadow */
+    width: 100%;
+    max-width: 550px; /* Slightly wider form for more comfortable input */
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Increased space between form elements */
+    position: relative; /* For potential pseudo-elements or detailed effects */
+    animation: fadeInScaleUp 0.8s ease-out forwards;
+}
+
+/* Optional: Subtle background pattern for texture */
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h1v1H0zm2 2h1v1H2zm2 2h1v1H4zm2 2h1v1H6zm2 2h1v1H8z" fill="%23f0f0f0" fill-opacity="0.2"/></svg>');
+    opacity: 0.3; /* Very subtle */
+    border-radius: inherit; /* Inherit border-radius from parent */
+    z-index: 0;
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+@keyframes fadeInScaleUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 8px; /* More space between label and input */
+    color: #444;
+    font-weight: 600; /* Slightly bolder */
+    font-size: 1em; /* Standard font size */
+    letter-spacing: 0.01em;
+    transition: color 0.3s ease;
+}
+
+/* Input, Select, Textarea Base Styles */
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px; /* More generous padding */
+    border: 2px solid #e0e0e0; /* Slightly thicker and lighter border */
+    border-radius: 10px; /* More rounded input fields */
+    font-size: 1.05em; /* Slightly larger font inside inputs */
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.06); /* Deeper inner shadow */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #fcfcfc; /* Slightly off-white background */
+}
+
+/* Focus Styles for Inputs, Select, Textarea */
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #7d4cfc; /* More vibrant accent color on focus */
+    box-shadow: 0 0 0 4px rgba(125, 76, 252, 0.25); /* Stronger, diffused glow */
+    outline: none;
+    transform: translateY(-2px); /* Subtle lift on focus */
+}
+
+/* Placeholder styling */
+input::placeholder,
+textarea::placeholder {
+    color: #b0b0b0;
+    opacity: 1; /* Ensure consistency */
+    transition: color 0.3s ease;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    color: #d0d0d0; /* Fades out slightly on focus */
+}
+
+/* Specific Textarea adjustments */
+textarea {
+    resize: vertical;
+    min-height: 120px; /* Increased min-height for better writing space */
+    line-height: 1.5; /* Better line spacing for text entry */
+}
+
+/* Select element specific styling */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Slightly darker arrow */
+    background-repeat: no-repeat;
+    background-position: right 15px center; /* More space for arrow */
+    background-size: 24px; /* Larger arrow */
+    padding-right: 40px; /* More space for custom arrow */
+}
+select:hover {
+    cursor: pointer;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background-image: linear-gradient(45deg, #7d4cfc 0%, #b27bfb 100%); /* Gradient button */
+    color: white;
+    padding: 16px 30px; /* More generous padding */
+    border: none;
+    border-radius: 12px; /* More rounded button */
+    cursor: pointer;
+    font-size: 1.15em; /* Slightly larger text */
+    font-weight: 600;
+    width: 100%;
+    letter-spacing: 0.05em; /* More pronounced letter spacing */
+    transition: all 0.3s ease; /* All-encompassing transition */
+    box-shadow: 0 10px 25px rgba(125, 76, 252, 0.4); /* Deeper shadow */
+    position: relative;
+    overflow: hidden; /* For shine effect */
+    isolation: isolate; /* Ensures z-index contexts for pseudo-elements */
+}
+
+/* Shine effect on button */
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    z-index: -1; /* Place behind text */
+}
+
+button[type="submit"]:hover::before {
+    transform: translateX(100%); /* Animate shine across */
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-5px); /* More pronounced lift on hover */
+    box-shadow: 0 15px 30px rgba(125, 76, 252, 0.5); /* Enhanced shadow on hover */
+    filter: brightness(1.1); /* Slight brightness increase */
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(125, 76, 252, 0.3);
+    filter: brightness(0.95); /* Slight darkening on click */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 15px; /* More uniform padding */
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
+
+    form {
+        padding: 30px;
+        border-radius: 15px;
+        gap: 20px;
+        max-width: 100%; /* Allow form to take full width on small screens */
+    }
+
+    label {
+        font-size: 0.9em;
+        margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+        padding: 12px;
+        font-size: 1em;
+        border-radius: 8px;
+    }
+
+    textarea {
+        min-height: 100px;
+    }
+
+    select {
+        background-position: right 10px center;
+        background-size: 20px;
+        padding-right: 30px;
+    }
+
+    button[type="submit"] {
+        padding: 14px 25px;
+        font-size: 1.05em;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 2em;
+    }
+    form {
+        padding: 20px;
+    }
+    button[type="submit"] {
+        font-size: 1em;
+    }
+}
